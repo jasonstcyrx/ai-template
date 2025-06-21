@@ -19,7 +19,7 @@ test.describe('Service Initialization System Demo', () => {
     
     console.log('\n🛠️ Example Commands:');
     console.log('  yarn init:backend user-service --port 3001 --database --auth');
-    console.log('  yarn init:frontend admin-dashboard --port 5174');
+    console.log('  yarn init:frontend admin-dashboard --port 3000');
     console.log('  yarn init:microservice notification-service --port 3002');
     console.log('  yarn init:worker email-worker');
     
@@ -62,7 +62,7 @@ test.describe('Service Initialization System Demo', () => {
     
     console.log('\n📊 Port Management:');
     console.log('  • NestJS Backend: 3001-3099 (auto-assigned)');
-    console.log('  • React Frontend: 5174-5199 (auto-assigned)');
+    console.log('  • React Frontend: 3000, 3200-3299 (auto-assigned)');
     console.log('  • Microservices:  3001-3099 (auto-assigned)');
     console.log('  • Workers:        No exposed ports');
     

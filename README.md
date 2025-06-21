@@ -105,7 +105,7 @@ A fully containerized, modern full-stack application for autonomous procurement 
 yarn init:backend user-service --port 3001 --database --auth
 
 # Create a new React frontend
-yarn init:frontend admin-dashboard --port 5174
+yarn init:frontend admin-dashboard --port 3000
 
 # Create a microservice
 yarn init:microservice notification-service --port 3002

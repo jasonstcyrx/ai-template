@@ -68,7 +68,7 @@ show_help() {
     echo ""
     echo "Examples:"
     echo "  $0 nestjs-backend user-service --port 3001 --database"
-    echo "  $0 react-frontend admin-dashboard --port 5174"
+    echo "  $0 react-frontend admin-dashboard --port 3000"
     echo "  $0 microservice notification-service --port 3002"
     echo "  $0 worker email-worker"
     echo ""
@@ -95,8 +95,13 @@ get_next_port() {
             done
             ;;
         "react-frontend")
-            # Start from 5174 for frontend services
-            for port in {5174..5199}; do
+            # Start from 3000 for frontend services
+            if ! grep -q "3000:" docker-compose.yml 2>/dev/null; then
+                echo 3000
+                return
+            fi
+            # If 3000 is taken, use 3200+ range (avoiding backend 3001-3099)
+            for port in {3200..3299}; do
                 if ! grep -q "$port:" docker-compose.yml 2>/dev/null; then
                     echo $port
                     return

@@ -54,7 +54,7 @@ Creates a background worker service with:
 yarn init:backend user-service --port 3001 --database --auth
 
 # Create a new React frontend
-yarn init:frontend admin-dashboard --port 5174
+yarn init:frontend admin-dashboard --port 3000
 
 # Create a microservice
 yarn init:microservice notification-service --port 3002
@@ -74,7 +74,7 @@ yarn service:help
 
 # Examples
 ./scripts/init-service.sh nestjs-backend api-gateway --port 3001 --database
-./scripts/init-service.sh react-frontend mobile-app --port 5175
+./scripts/init-service.sh react-frontend mobile-app --port 3000
 ./scripts/init-service.sh microservice analytics-service
 ./scripts/init-service.sh worker data-processor
 ```
@@ -108,7 +108,7 @@ The system automatically assigns ports to avoid conflicts:
 |--------------|------------|---------------|
 | NestJS Backend | 3001-3099 | 3001 |
 | Microservice | 3001-3099 | 3001 |
-| React Frontend | 5174-5199 | 5174 |
+| React Frontend | 3000, 3200-3299 | 3000 |
 | Worker | No ports | N/A |
 
 ## Generated Project Structure
@@ -418,8 +418,8 @@ yarn init:backend order-service --port 3002 --database --auth
 yarn init:backend user-service --port 3003 --database --auth
 
 # Frontend Applications
-yarn init:frontend customer-app --port 5174
-yarn init:frontend admin-dashboard --port 5175
+yarn init:frontend customer-app --port 3000
+yarn init:frontend admin-dashboard --port 3200
 
 # Microservices
 yarn init:microservice payment-gateway --port 3004
@@ -446,7 +446,7 @@ yarn init:microservice metrics-collector --port 3020
 yarn init:worker log-processor
 
 # Frontend
-yarn init:frontend dev-portal --port 5180
+yarn init:frontend dev-portal --port 3201
 ```
 
 ## Integration with Existing Services
