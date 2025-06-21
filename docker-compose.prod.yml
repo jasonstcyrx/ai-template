@@ -68,18 +68,18 @@ services:
       - procurement-network
     environment:
       - NODE_ENV=production
-      - PORT=3001
+      - PORT=3003
       - MONGODB_URI=mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@mongodb:27017/backend_db?authSource=admin
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=${JWT_SECRET}
     ports:
-      - '3001:3001'
+      - '3003:3003'
     healthcheck:
       test:
         - CMD
         - curl
         - '-f'
-        - http://localhost:3001/health
+        - http://localhost:3003/health
       interval: 30s
       timeout: 5s
       retries: 5
@@ -106,7 +106,7 @@ services:
       - procurement-network
     environment:
       - NODE_ENV=production
-      - VITE_API_BASE_URL=http://localhost:3000/api
+      - VITE_API_BASE_URL=http://localhost:3003/api
       - VITE_APP_NAME=frontend
       - VITE_NODE_ENV=production
     ports:
@@ -166,19 +166,19 @@ services:
       - procurement-network
     environment:
       - NODE_ENV=production
-      - PORT=3002
+      - PORT=3001
       - >-
         MONGODB_URI=mongodb://${MONGODB_USERNAME}:${MONGODB_PASSWORD}@mongodb:27017/notification-service_db?authSource=admin
       - REDIS_URL=redis://redis:6379
       - JWT_SECRET=${JWT_SECRET}
     ports:
-      - '3002:3002'
+      - '3001:3001'
     healthcheck:
       test:
         - CMD
         - curl
         - '-f'
-        - http://localhost:3002/health
+        - http://localhost:3001/health
       interval: 30s
       timeout: 5s
       retries: 5

@@ -4,7 +4,7 @@ import helmet from 'helmet';
 import morgan from 'morgan';
 
 const app = express();
-const port = process.env.PORT || 3002;
+const port = process.env.PORT || 3001;
 
 // Middleware
 app.use(helmet());

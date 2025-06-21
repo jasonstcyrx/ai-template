@@ -26,9 +26,9 @@ COPY --chown=notification-service:nodejs package.json ./
 RUN chown -R notification-service:nodejs /app
 USER notification-service
 
-EXPOSE 3002
+EXPOSE 3001
 
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:3002/health || exit 1
+  CMD curl -f http://localhost:3001/health || exit 1
 
 CMD ["node", "dist/index.js"]
