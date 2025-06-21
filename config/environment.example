@@ -1,0 +1,37 @@
+# Environment Variables for Procurement Platform
+
+# Database Configuration
+MONGODB_USERNAME=admin
+MONGODB_PASSWORD=procurement_password_change_in_production
+MONGODB_DATABASE=procurement_db
+
+# Application Configuration
+JWT_SECRET=your_super_secret_jwt_key_change_in_production
+API_KEY=your_api_key_for_external_services
+
+# Frontend Configuration
+FRONTEND_URL=http://localhost:5173
+
+# Redis Configuration (optional)
+REDIS_PASSWORD=redis_password_change_in_production
+
+# Production Environment Variables (when needed)
+# MONGODB_URI=mongodb://username:password@host:port/database
+# SSL_CERT_PATH=/path/to/cert.pem
+# SSL_KEY_PATH=/path/to/key.pem
+
+# External Services (examples for future implementation)
+# AWS_ACCESS_KEY_ID=your_aws_access_key
+# AWS_SECRET_ACCESS_KEY=your_aws_secret_key
+# AWS_REGION=us-east-1
+# STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
+# SENDGRID_API_KEY=your_sendgrid_api_key
+
+# Monitoring and Logging (examples)
+# SENTRY_DSN=your_sentry_dsn
+# LOG_LEVEL=info
+
+# Feature Flags (examples)
+# ENABLE_AI_DECISIONS=true
+# ENABLE_VENDOR_INTEGRATION=false
+# ENABLE_ANALYTICS=true 

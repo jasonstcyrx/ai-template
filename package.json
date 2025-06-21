@@ -7,11 +7,32 @@
     "ticket": "node scripts/ticket-cli.js",
     "sync-rules": "node scripts/sync-rules.js",
     "rule:create": "node scripts/rule-create.js create",
-    "rule:template": "node scripts/rule-create.js template"
+    "rule:template": "node scripts/rule-create.js template",
+    "docker:dev": "./scripts/docker-dev.sh start",
+    "docker:stop": "./scripts/docker-dev.sh stop",
+    "docker:restart": "./scripts/docker-dev.sh restart",
+    "docker:logs": "./scripts/docker-dev.sh logs",
+    "docker:status": "./scripts/docker-dev.sh status",
+    "docker:rebuild": "./scripts/docker-dev.sh rebuild",
+    "docker:cleanup": "./scripts/docker-dev.sh cleanup",
+    "docker:shell": "./scripts/docker-dev.sh shell",
+    "docker:prod": "docker-compose -f docker-compose.prod.yml up -d",
+    "docker:prod:stop": "docker-compose -f docker-compose.prod.yml down",
+    "init:service": "./scripts/init-service.sh",
+    "init:backend": "./scripts/init-service.sh nestjs-backend",
+    "init:frontend": "./scripts/init-service.sh react-frontend",
+    "init:microservice": "./scripts/init-service.sh microservice",
+    "init:worker": "./scripts/init-service.sh worker",
+    "service:help": "./scripts/init-service.sh --help",
+    "dev": "./scripts/docker-dev.sh start",
+    "start": "./scripts/docker-dev.sh start",
+    "stop": "./scripts/docker-dev.sh stop",
+    "logs": "./scripts/docker-dev.sh logs"
   },
   "dependencies": {
     "commander": "^11.0.0",
     "js-yaml": "^4.1.0",
+    "playwright": "^1.53.1",
     "uuid": "^9.0.0"
   }
 }
