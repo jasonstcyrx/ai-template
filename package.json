@@ -1,0 +1,17 @@
+{
+  "name": "template",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "ticket": "node scripts/ticket-cli.js",
+    "sync-rules": "node scripts/sync-rules.js",
+    "rule:create": "node scripts/rule-create.js create",
+    "rule:template": "node scripts/rule-create.js template"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "js-yaml": "^4.1.0",
+    "uuid": "^9.0.0"
+  }
+}
