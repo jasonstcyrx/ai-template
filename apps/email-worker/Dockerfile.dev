@@ -1,0 +1,17 @@
+# Development Dockerfile for email-worker
+FROM node:18-alpine
+
+WORKDIR /app
+
+RUN addgroup -g 1001 -S nodejs && \
+    adduser -S email-worker -u 1001 -G nodejs
+
+RUN chown -R email-worker:nodejs /app
+USER email-worker
+
+COPY --chown=email-worker:nodejs package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
+
+COPY --chown=email-worker:nodejs . .
+
+CMD ["yarn", "start:dev"]

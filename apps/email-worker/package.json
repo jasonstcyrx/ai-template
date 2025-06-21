@@ -1,0 +1,28 @@
+{
+  "name": "email-worker",
+  "version": "1.0.0",
+  "description": "email-worker worker service",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "test": "jest",
+    "lint": "eslint src/**/*.ts --fix"
+  },
+  "dependencies": {
+    "bullmq": "^4.15.0",
+    "ioredis": "^5.3.2",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.0",
+    "typescript": "^5.3.2",
+    "ts-node-dev": "^2.0.0",
+    "eslint": "^8.54.0",
+    "@typescript-eslint/eslint-plugin": "^6.12.0",
+    "@typescript-eslint/parser": "^6.12.0",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.8"
+  }
+}
