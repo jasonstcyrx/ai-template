@@ -2,6 +2,8 @@
 
 This template includes a robust testing framework with **42 automated tests** covering unit, integration, and end-to-end scenarios. This guide explains the testing strategy, available tools, and how to maintain and extend the test suite.
 
+> **📊 Better Viewing**: Install the [Markdown Preview Enhanced](https://marketplace.cursorapi.com/items?itemName=shd101wyy.markdown-preview-enhanced) extension for Cursor to see test pyramids, code blocks, and tables with enhanced formatting and navigation.
+
 ## 📊 Testing Overview
 
 ### Test Suite Composition

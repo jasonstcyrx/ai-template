@@ -505,6 +505,8 @@ The template is ready for:
 
 ## 📚 Documentation
 
+> **💡 Pro Tip**: For the best documentation viewing experience, install the [Markdown Preview Enhanced](https://marketplace.cursorapi.com/items?itemName=shd101wyy.markdown-preview-enhanced) extension for Cursor. It provides enhanced rendering, table of contents, and better formatting for all our markdown documentation.
+
 - [Service Initialization Guide](./SERVICE_INIT.md) - Complete service generation guide
 - [Docker Management Guide](./DOCKER.md) - Comprehensive Docker documentation  
 - [Testing Strategy](./docs/TESTING.md) - Testing philosophy and practices

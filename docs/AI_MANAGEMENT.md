@@ -2,6 +2,8 @@
 
 This template includes an advanced AI management layer that automates development workflows, service generation, and project management. This guide explains how to leverage these AI-powered features effectively.
 
+> **📖 Enhanced Reading**: For the best documentation experience, use the [Markdown Preview Enhanced](https://marketplace.cursorapi.com/items?itemName=shd101wyy.markdown-preview-enhanced) extension for Cursor. It provides better formatting, navigation, and rendering for this comprehensive guide.
+
 ## 📋 Table of Contents
 
 1. [AI Service Generation](#ai-service-generation)

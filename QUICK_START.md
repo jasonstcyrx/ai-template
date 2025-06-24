@@ -2,6 +2,8 @@
 
 Get up and running with the AI-Managed Development Template in under 5 minutes!
 
+> **💡 Documentation Tip**: Install the [Markdown Preview Enhanced](https://marketplace.cursorapi.com/items?itemName=shd101wyy.markdown-preview-enhanced) extension for Cursor to get the best viewing experience for all our documentation files.
+
 ## 📋 Prerequisites
 
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) (required)
