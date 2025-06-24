@@ -575,9 +575,33 @@ This template gives you:
 
 ```bash
 ./scripts/docker-dev.sh start
-npm run ticket create -t "Your first feature" --type feature -p high
-npm run service:init nestjs-backend my-service 3005
 ```
+
+## 🤖 Your AI-Powered Development Assistant
+
+**Most Important First Step:** After setup, talk to your AI assistant! This template is designed for AI-managed development:
+
+**Simply ask: "What's next?"**
+
+Your AI assistant will:
+- 🎯 **Analyze your ticket system** and recommend the highest priority task
+- 🚀 **Generate complete services** automatically with full Docker integration  
+- 🎫 **Guide your development workflow** from ticket creation to deployment
+- 🧪 **Help with testing** and ensure quality standards are met
+- 🐳 **Manage Docker operations** and troubleshoot any issues
+- 📚 **Navigate the codebase** and explain architectural decisions
+
+**Example conversation starters:**
+```
+"What's next?"
+"Create a new user management service"
+"Help me debug the failing tests"
+"Generate a React frontend for admin dashboard"
+"What tickets are ready for review?"
+"Show me how to deploy to production"
+```
+
+The AI understands your entire development environment and can automate complex workflows while teaching best practices.
 
 ## 📄 License
 

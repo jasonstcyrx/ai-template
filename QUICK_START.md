@@ -43,6 +43,24 @@ You should see:
 - ✅ **Backend**: API docs at http://localhost:3003/api/docs
 - ✅ **All services healthy**: Green checkmarks in status
 
+## 🤖 Step 3: Talk to Your AI Assistant
+
+**This is an AI-managed template!** After setup, your first step should be to engage with your AI assistant:
+
+```
+"What's next?"
+```
+
+Your AI assistant can help you:
+- 🎯 **Find the next priority task** from your ticket system
+- 🚀 **Generate new services** automatically with Docker integration
+- 🎫 **Manage your development workflow** with intelligent ticket management
+- 🧪 **Run and debug tests** with comprehensive coverage analysis
+- 🐳 **Handle Docker operations** and troubleshooting
+- 📚 **Navigate the codebase** and understand the architecture
+
+**Just ask!** The AI understands your entire development environment and can guide you through any task.
+
 ## 🎯 Your First AI-Generated Service
 
 ### Generate a New Backend Service
