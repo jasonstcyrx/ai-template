@@ -1,37 +1,124 @@
-# Environment Variables for Procurement Platform
+# 🤖 AI-Managed Development Template Environment Configuration
+# Copy this file to .env and customize for your project
 
-# Database Configuration
+# =============================================================================
+# DATABASE CONFIGURATION
+# =============================================================================
+
+# MongoDB Settings
 MONGODB_USERNAME=admin
-MONGODB_PASSWORD=procurement_password_change_in_production
-MONGODB_DATABASE=procurement_db
+MONGODB_PASSWORD=your_secure_password_here
+MONGODB_DATABASE=your_project_db
 
-# Application Configuration
+# MongoDB Connection (automatically configured by Docker)
+MONGODB_URI=mongodb://admin:your_secure_password_here@mongodb:27017/your_project_db?authSource=admin
+
+# =============================================================================
+# CACHE & SESSION STORAGE
+# =============================================================================
+
+# Redis Configuration (automatically configured by Docker)
+REDIS_URL=redis://redis:6379
+
+# =============================================================================
+# AUTHENTICATION & SECURITY
+# =============================================================================
+
+# JWT Secret Key (CHANGE THIS IN PRODUCTION!)
 JWT_SECRET=your_super_secret_jwt_key_change_in_production
-API_KEY=your_api_key_for_external_services
 
-# Frontend Configuration
-FRONTEND_URL=http://localhost:5173
+# Session Secret (CHANGE THIS IN PRODUCTION!)
+SESSION_SECRET=your_super_secret_session_key_change_in_production
 
-# Redis Configuration (optional)
-REDIS_PASSWORD=redis_password_change_in_production
+# =============================================================================
+# APPLICATION CONFIGURATION
+# =============================================================================
 
-# Production Environment Variables (when needed)
-# MONGODB_URI=mongodb://username:password@host:port/database
-# SSL_CERT_PATH=/path/to/cert.pem
-# SSL_KEY_PATH=/path/to/key.pem
+# Environment
+NODE_ENV=development
 
-# External Services (examples for future implementation)
-# AWS_ACCESS_KEY_ID=your_aws_access_key
-# AWS_SECRET_ACCESS_KEY=your_aws_secret_key
-# AWS_REGION=us-east-1
-# STRIPE_SECRET_KEY=sk_test_your_stripe_secret_key
-# SENDGRID_API_KEY=your_sendgrid_api_key
+# Frontend Application URL
+FRONTEND_URL=http://localhost:3000
 
-# Monitoring and Logging (examples)
-# SENTRY_DSN=your_sentry_dsn
-# LOG_LEVEL=info
+# Backend API Base URL
+API_BASE_URL=http://localhost:3003
 
-# Feature Flags (examples)
-# ENABLE_AI_DECISIONS=true
-# ENABLE_VENDOR_INTEGRATION=false
-# ENABLE_ANALYTICS=true 
+# =============================================================================
+# SERVICE PORTS (automatically managed by Docker)
+# =============================================================================
+
+# Core Services
+FRONTEND_PORT=3000
+BACKEND_PORT=3003
+NOTIFICATION_PORT=3001
+
+# Infrastructure
+MONGODB_PORT=27017
+REDIS_PORT=6379
+
+# =============================================================================
+# EXTERNAL SERVICE INTEGRATIONS
+# =============================================================================
+
+# Email Service (optional)
+SMTP_HOST=smtp.your-email-provider.com
+SMTP_PORT=587
+SMTP_USERNAME=your_email@domain.com
+SMTP_PASSWORD=your_email_password
+
+# External API Keys (add as needed)
+EXTERNAL_API_KEY=your_external_api_key_here
+EXTERNAL_API_SECRET=your_external_api_secret_here
+
+# =============================================================================
+# PRODUCTION OVERRIDES
+# =============================================================================
+
+# SSL Configuration (production only)
+SSL_CERT_PATH=/path/to/ssl/cert.pem
+SSL_KEY_PATH=/path/to/ssl/private.key
+
+# Database Backup Configuration
+BACKUP_SCHEDULE=0 2 * * *  # Daily at 2 AM
+BACKUP_RETENTION_DAYS=30
+
+# =============================================================================
+# AI MANAGEMENT CONFIGURATION
+# =============================================================================
+
+# Ticket System Configuration
+TICKET_ROOT=./tickets
+DEFAULT_ASSIGNEE=developer
+
+# Service Generation Settings
+DEFAULT_PORT_RANGE_START=3001
+AUTO_PORT_ASSIGNMENT=true
+
+# =============================================================================
+# DEVELOPMENT SETTINGS
+# =============================================================================
+
+# Debug Logging
+DEBUG_LEVEL=info
+LOG_TO_FILE=false
+
+# Hot Reloading
+HOT_RELOAD=true
+WATCH_CHANGES=true
+
+# Test Configuration
+TEST_TIMEOUT=30000
+COVERAGE_THRESHOLD=70
+
+# =============================================================================
+# NOTES FOR SETUP
+# =============================================================================
+
+# 1. Copy this file: cp config/environment.example .env
+# 2. Update all "your_*" placeholders with actual values
+# 3. Generate secure secrets for JWT_SECRET and SESSION_SECRET
+# 4. Configure external service credentials as needed
+# 5. Never commit the .env file to version control
+
+# To generate secure secrets, use:
+# node -e "console.log(require('crypto').randomBytes(64).toString('hex'))" 

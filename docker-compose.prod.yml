@@ -2,7 +2,7 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:7.0-jammy
-    container_name: procurement-mongodb-prod
+    container_name: template-mongodb-prod
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: ${MONGODB_USERNAME}
@@ -14,7 +14,7 @@ services:
       - mongodb_data:/data/db
       - ./config/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     networks:
-      - procurement-network
+      - template-network
     healthcheck:
       test:
         - CMD
@@ -33,14 +33,14 @@ services:
           memory: 512M
   redis:
     image: redis:7.2-alpine
-    container_name: procurement-redis-prod
+    container_name: template-redis-prod
     restart: always
     ports:
       - '6379:6379'
     volumes:
       - redis_data:/data
     networks:
-      - procurement-network
+      - template-network
     healthcheck:
       test:
         - CMD
@@ -62,10 +62,10 @@ services:
       context: ./apps/backend
       dockerfile: Dockerfile
       target: production
-    container_name: procurement-backend-prod
+    container_name: template-backend-prod
     restart: always
     networks:
-      - procurement-network
+      - template-network
     environment:
       - NODE_ENV=production
       - PORT=3003
@@ -100,10 +100,10 @@ services:
       context: ./apps/frontend
       dockerfile: Dockerfile
       target: production
-    container_name: procurement-frontend-prod
+    container_name: template-frontend-prod
     restart: always
     networks:
-      - procurement-network
+      - template-network
     environment:
       - NODE_ENV=production
       - VITE_API_BASE_URL=http://localhost:3003/api
@@ -132,7 +132,7 @@ services:
           memory: 256M
   nginx:
     image: nginx:alpine
-    container_name: procurement-nginx-prod
+    container_name: template-nginx-prod
     restart: always
     ports:
       - '443:443'
@@ -144,7 +144,7 @@ services:
       - frontend
       - backend
     networks:
-      - procurement-network
+      - template-network
     healthcheck:
       test:
         - CMD
@@ -160,10 +160,10 @@ services:
       context: ./apps/notification-service
       dockerfile: Dockerfile
       target: production
-    container_name: procurement-notification-service-prod
+    container_name: template-notification-service-prod
     restart: always
     networks:
-      - procurement-network
+      - template-network
     environment:
       - NODE_ENV=production
       - PORT=3001
@@ -199,10 +199,10 @@ services:
       context: ./apps/email-worker
       dockerfile: Dockerfile
       target: production
-    container_name: procurement-email-worker-prod
+    container_name: template-email-worker-prod
     restart: always
     networks:
-      - procurement-network
+      - template-network
     environment:
       - NODE_ENV=production
       - REDIS_URL=redis://redis:6379
@@ -222,7 +222,7 @@ volumes:
   redis_data:
     driver: local
 networks:
-  procurement-network:
+  template-network:
     driver: bridge
     ipam:
       config:

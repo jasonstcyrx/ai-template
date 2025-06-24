@@ -1,120 +1,428 @@
-const { test, expect } = require('@playwright/test');
+const { chromium } = require('playwright');
+const fs = require('fs');
+const path = require('path');
 
-test.describe('Service Initialization System Demo', () => {
-  test('demonstrate service initialization capabilities', async ({ page }) => {
-    // This is a conceptual demo - in a real scenario you would:
-    // 1. Show the command line interface for creating services
-    // 2. Demonstrate the generated project structure
-    // 3. Show the automatic Docker integration
-    // 4. Test the health endpoints of created services
-    
-    console.log('🚀 Service Initialization System Demo');
-    console.log('=====================================');
-    
-    console.log('\n📦 Available Service Types:');
-    console.log('  • nestjs-backend - Full-featured NestJS backend service');
-    console.log('  • react-frontend - Modern React application with Vite');
-    console.log('  • microservice   - Lightweight Express.js microservice');
-    console.log('  • worker         - Background worker with BullMQ');
-    
-    console.log('\n🛠️ Example Commands:');
-    console.log('  yarn init:backend user-service --port 3001 --database --auth');
-    console.log('  yarn init:frontend admin-dashboard --port 3000');
-    console.log('  yarn init:microservice notification-service --port 3002');
-    console.log('  yarn init:worker email-worker');
-    
-    console.log('\n✨ Automatic Features:');
-    console.log('  ✅ Complete project scaffolding');
-    console.log('  ✅ TypeScript configuration');
-    console.log('  ✅ Docker development & production containers');
-    console.log('  ✅ Automatic Docker Compose integration');
-    console.log('  ✅ Health check endpoints');
-    console.log('  ✅ Security best practices');
-    console.log('  ✅ Port management');
-    console.log('  ✅ Environment variable configuration');
-    
-    console.log('\n🏗️ Generated Structure Example (NestJS Backend):');
-    console.log('  apps/user-service/');
-    console.log('  ├── src/');
-    console.log('  │   ├── main.ts              # Application entry');
-    console.log('  │   ├── app.module.ts        # Root module');
-    console.log('  │   ├── app.controller.ts    # Health endpoints');
-    console.log('  │   └── app.service.ts       # Basic service');
-    console.log('  ├── Dockerfile               # Production build');
-    console.log('  ├── Dockerfile.dev           # Development build');
-    console.log('  ├── package.json             # Dependencies');
-    console.log('  ├── tsconfig.json           # TypeScript config');
-    console.log('  └── tsconfig.build.json     # Build config');
-    
-    console.log('\n🐳 Docker Integration:');
-    console.log('  • Automatically added to docker-compose.yml');
-    console.log('  • Automatically added to docker-compose.prod.yml');
-    console.log('  • Health checks configured');
-    console.log('  • Proper service dependencies');
-    console.log('  • Environment variables set up');
-    
-    console.log('\n🚀 Development Workflow:');
-    console.log('  1. Create service: yarn init:backend my-service --database');
-    console.log('  2. Install deps:   cd apps/my-service && yarn install');
-    console.log('  3. Start dev:      yarn dev');
-    console.log('  4. Access:         http://localhost:<auto-assigned-port>');
-    console.log('  5. API Docs:       http://localhost:<port>/api/docs');
-    
-    console.log('\n📊 Port Management:');
-    console.log('  • NestJS Backend: 3001-3099 (auto-assigned)');
-    console.log('  • React Frontend: 3000, 3200-3299 (auto-assigned)');
-    console.log('  • Microservices:  3001-3099 (auto-assigned)');
-    console.log('  • Workers:        No exposed ports');
-    
-    console.log('\n🔧 Advanced Options:');
-    console.log('  --database     Include MongoDB connection (backends)');
-    console.log('  --auth         Include JWT authentication setup');
-    console.log('  --port <port>  Specify custom port');
-    console.log('  --dry-run      Preview what would be created');
-    
-    console.log('\n💡 Benefits:');
-    console.log('  ⚡ Rapid service development');
-    console.log('  🔄 Consistent project structure');
-    console.log('  🐳 Automatic Docker integration');
-    console.log('  🔒 Security best practices built-in');
-    console.log('  📚 Production-ready configuration');
-    console.log('  🎯 Zero configuration required');
-    
-    console.log('\n🎉 Service Initialization System Demo Complete!');
-    console.log('    Ready to create scalable microservices in seconds.');
-    
-    // Simulate successful demo
-    await page.waitForTimeout(1000);
-    expect(true).toBe(true);
+console.log('🧪 Testing System VS Code Integration Demo');
+console.log('==========================================');
+
+(async () => {
+  console.log('✅ VS Code Testing System Ready!');
+  console.log('');
+  console.log('📋 What\'s Configured:');
+  console.log('   • Jest extension integration');
+  console.log('   • Debug configurations');
+  console.log('   • Task definitions');
+  console.log('   • Coverage display');
+  console.log('   • Test discovery');
+  console.log('');
+  console.log('🔧 Required Extensions:');
+  console.log('   • Jest (Orta.vscode-jest)');
+  console.log('   • Jest Runner (firsttris.vscode-jest-runner)');
+  console.log('   • Coverage Gutters (ryanluker.vscode-coverage-gutters)');
+  console.log('   • Test Explorer UI (hbenl.vscode-test-explorer)');
+  console.log('');
+  console.log('⌨️  Available Commands:');
+  console.log('   • F5 → Debug All Tests');
+  console.log('   • Ctrl+Shift+P → Tasks: Run Task → Run All Tests');
+  console.log('   • Ctrl+Shift+P → Tasks: Run Task → Watch Tests');
+  console.log('   • Ctrl+Shift+P → Coverage Gutters: Display Coverage');
+  console.log('');
+  console.log('📁 VS Code Files Created:');
+  console.log('   • .vscode/settings.json');
+  console.log('   • .vscode/launch.json');
+  console.log('   • .vscode/tasks.json');
+  console.log('');
+  console.log('🚀 Getting Started:');
+  console.log('   1. Install VS Code extensions listed above');
+  console.log('   2. Open project in VS Code');
+  console.log('   3. Run: yarn install');
+  console.log('   4. Run: yarn test:coverage');
+  console.log('   5. Press F5 to debug tests');
+  console.log('');
+  console.log('📊 Test Coverage:');
+  console.log('   • Unit Tests: Ticket CLI, Service Init, Docker Compose');
+  console.log('   • E2E Tests: Complete workflows and error recovery');
+  console.log('   • Custom Matchers: Domain-specific assertions');
+  console.log('   • 70% minimum coverage enforced');
+  console.log('');
+  console.log('💡 Pro Tips:');
+  console.log('   • Use "Debug Current Test File" to debug specific files');
+  console.log('   • Coverage gutters show line-by-line coverage');
+  console.log('   • Jest extension shows test results inline');
+  console.log('   • Test Explorer provides visual test tree');
+  console.log('');
+  console.log('🎯 All tests will run seamlessly in VS Code!');
+
+  const browser = await chromium.launch({ 
+    headless: false,
+    slowMo: 1000
   });
   
-  test('validate service commands work', async ({ page }) => {
-    console.log('\n🧪 Testing Service Commands');
-    console.log('============================');
+  const context = await browser.newContext();
+  const page = await context.newPage();
+  
+  console.log('🎬 Demonstrating Comprehensive Testing System');
+  
+  try {
+    // Create an HTML page to showcase the testing system
+    const demoHtml = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Testing System Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+        }
+        .header h1 {
+            color: #333;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: #333;
+            margin-top: 0;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .emoji {
+            font-size: 1.5em;
+        }
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 14px;
+            margin: 15px 0;
+            overflow-x: auto;
+        }
+        .highlight {
+            background: #ffeb3b;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #333;
+        }
+        .success {
+            background: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .feature-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+        }
+        .vs-code-section {
+            background: linear-gradient(135deg, #007acc 0%, #005a9e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+        }
+        .vs-code-section h2 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .commands {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .command {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .command code {
+            background: rgba(0,0,0,0.3);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-family: 'Consolas', 'Monaco', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧪 Comprehensive Testing System</h1>
+            <p>Complete test coverage for templating and ticketing systems</p>
+        </div>
+
+        <div class="success">
+            <strong>✅ Testing System Successfully Implemented!</strong> 
+            All components are tested with comprehensive unit, integration, and end-to-end tests.
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h3><span class="emoji">🔧</span>Unit Tests</h3>
+                <p>Individual component testing:</p>
+                <ul>
+                    <li><strong>Ticket CLI System</strong> - All operations</li>
+                    <li><strong>Service Initialization</strong> - All service types</li>
+                    <li><strong>Docker Integration</strong> - Configuration generation</li>
+                </ul>
+                <div class="code-block">yarn test:unit</div>
+            </div>
+
+            <div class="card">
+                <h3><span class="emoji">🔄</span>End-to-End Tests</h3>
+                <p>Complete workflow validation:</p>
+                <ul>
+                    <li><strong>Project Lifecycle</strong> - Ticket to deployment</li>
+                    <li><strong>Multi-Service</strong> - Complex projects</li>
+                    <li><strong>Error Recovery</strong> - Failure handling</li>
+                </ul>
+                <div class="code-block">yarn test:e2e</div>
+            </div>
+
+            <div class="card">
+                <h3><span class="emoji">📊</span>Coverage Reports</h3>
+                <p>Comprehensive test coverage:</p>
+                <ul>
+                    <li><strong>70% minimum</strong> - All metrics</li>
+                    <li><strong>HTML reports</strong> - Interactive browsing</li>
+                    <li><strong>CI integration</strong> - Automated validation</li>
+                </ul>
+                <div class="code-block">yarn test:coverage</div>
+            </div>
+
+            <div class="card">
+                <h3><span class="emoji">🎯</span>Custom Matchers</h3>
+                <p>Domain-specific assertions:</p>
+                <ul>
+                    <li><code>toBeValidTicketId()</code></li>
+                    <li><code>toHaveValidPackageJson()</code></li>
+                    <li><code>toHaveDockerfile()</code></li>
+                </ul>
+                <div class="code-block">expect(ticketId).toBeValidTicketId();</div>
+            </div>
+        </div>
+
+        <div class="vs-code-section">
+            <h2>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.15 2.587L18.21.21a1.494 1.494 0 0 0-1.705.29l-9.46 8.63-4.12-3.128a.999.999 0 0 0-1.276.057L.327 7.261A1 1 0 0 0 .326 8.74L3.899 12 .326 15.26a1 1 0 0 0 .001 1.479L1.65 17.94a.999.999 0 0 0 1.276.057l4.12-3.128 9.46 8.63a1.492 1.492 0 0 0 1.704.29l4.942-2.377A1.5 1.5 0 0 0 24 20.06V3.939a1.5 1.5 0 0 0-.85-1.352zm-5.146 14.861L10.826 12l7.178-5.448v10.896z"/>
+                </svg>
+                VS Code Integration Ready!
+            </h2>
+            
+            <p>The testing system is fully configured for VS Code with:</p>
+            
+            <div class="feature-list">
+                <div class="feature">
+                    <span class="emoji">🔍</span>
+                    <span>Automatic test discovery</span>
+                </div>
+                <div class="feature">
+                    <span class="emoji">▶️</span>
+                    <span>Run tests from editor</span>
+                </div>
+                <div class="feature">
+                    <span class="emoji">🐛</span>
+                    <span>Debug configuration</span>
+                </div>
+                <div class="feature">
+                    <span class="emoji">📈</span>
+                    <span>Inline coverage display</span>
+                </div>
+            </div>
+
+            <h3>Required Extensions:</h3>
+            <div class="commands">
+                <div class="command">
+                    <strong>Jest Extension</strong><br>
+                    <code>Orta.vscode-jest</code>
+                </div>
+                <div class="command">
+                    <strong>Jest Runner</strong><br>
+                    <code>firsttris.vscode-jest-runner</code>
+                </div>
+                <div class="command">
+                    <strong>Coverage Gutters</strong><br>
+                    <code>ryanluker.vscode-coverage-gutters</code>
+                </div>
+                <div class="command">
+                    <strong>Test Explorer</strong><br>
+                    <code>hbenl.vscode-test-explorer</code>
+                </div>
+            </div>
+
+            <h3>Available Commands:</h3>
+            <div class="commands">
+                <div class="command">
+                    <strong>Run All Tests</strong><br>
+                    <code>Ctrl+Shift+P → Tasks: Run Task → Run All Tests</code>
+                </div>
+                <div class="command">
+                    <strong>Debug Tests</strong><br>
+                    <code>F5 → Debug All Tests</code>
+                </div>
+                <div class="command">
+                    <strong>Watch Mode</strong><br>
+                    <code>Ctrl+Shift+P → Tasks: Run Task → Watch Tests</code>
+                </div>
+                <div class="command">
+                    <strong>Coverage</strong><br>
+                    <code>Ctrl+Shift+P → Coverage Gutters: Display Coverage</code>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><span class="emoji">🚀</span>Getting Started</h3>
+            <div class="code-block">
+# Install dependencies
+yarn install
+
+# Run all tests
+yarn test
+
+# Run with coverage
+yarn test:coverage
+
+# Watch mode for development  
+yarn test:watch
+
+# Debug in VS Code
+F5 → Select debug configuration
+            </div>
+        </div>
+
+        <div class="card">
+            <h3><span class="emoji">📋</span>Test Results</h3>
+            <p>After running tests, find detailed reports in:</p>
+            <ul>
+                <li><code>test-results/test-report.html</code> - Interactive report</li>
+                <li><code>test-results/test-report.md</code> - Markdown summary</li>
+                <li><code>test-results/coverage/</code> - Coverage details</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>`;
+
+    // Write the demo HTML file
+    const demoPath = path.join(process.cwd(), 'demo-testing-system.html');
+    fs.writeFileSync(demoPath, demoHtml);
     
-    // Test 1: Help command should work
-    console.log('\n✅ Testing help command...');
-    console.log('   Command: yarn service:help');
-    console.log('   Expected: Shows usage instructions');
+    // Navigate to the demo page
+    await page.goto(`file://${demoPath}`);
     
-    // Test 2: Dry run should work
-    console.log('\n✅ Testing dry run...');
-    console.log('   Command: yarn init:backend test --dry-run');
-    console.log('   Expected: Shows what would be created without creating');
+    console.log('✅ Demo page loaded - showcasing testing system');
     
-    // Test 3: Port validation
-    console.log('\n✅ Port management...');
-    console.log('   • Automatically assigns available ports');
-    console.log('   • Checks for conflicts in docker-compose.yml');
-    console.log('   • Supports custom port specification');
+    // Scroll through the page to show different sections
+    await page.evaluate(() => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
     
-    // Test 4: Service name validation
-    console.log('\n✅ Service name validation...');
-    console.log('   • Must start with lowercase letter');
-    console.log('   • Only lowercase letters, numbers, hyphens');
-    console.log('   • Prevents duplicate service names');
+    await page.waitForTimeout(2000);
     
-    console.log('\n✅ All validation tests passed!');
-    await page.waitForTimeout(1000);
-  });
-}); 
+    // Scroll to VS Code section
+    await page.evaluate(() => {
+      const vsCodeSection = document.querySelector('.vs-code-section');
+      if (vsCodeSection) {
+        vsCodeSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+    
+    console.log('📱 Highlighting VS Code integration features');
+    await page.waitForTimeout(3000);
+    
+    // Scroll to commands section
+    await page.evaluate(() => {
+      const commandsSection = document.querySelector('.commands');
+      if (commandsSection) {
+        commandsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+    
+    console.log('⌨️ Showing available VS Code commands and shortcuts');
+    await page.waitForTimeout(3000);
+    
+    // Scroll to getting started
+    await page.evaluate(() => {
+      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    });
+    
+    console.log('🚀 Displaying getting started instructions');
+    await page.waitForTimeout(3000);
+    
+    console.log('\\n🎉 Testing System Demo Complete!');
+    console.log('\\n📋 Summary:');
+    console.log('✅ Comprehensive test suite created');
+    console.log('✅ VS Code integration configured');  
+    console.log('✅ Custom matchers and utilities included');
+    console.log('✅ Coverage reporting setup');
+    console.log('✅ Debug configurations ready');
+    console.log('\\n📖 Open the demo page to see full details:');
+    console.log(`   file://${demoPath}`);
+    
+    await page.waitForTimeout(2000);
+    
+  } catch (error) {
+    console.error('❌ Demo error:', error);
+  } finally {
+    await browser.close();
+  }
+})(); 

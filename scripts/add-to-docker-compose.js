@@ -19,6 +19,17 @@ function log(color, message) {
 }
 
 function addServiceToDockerCompose(serviceType, serviceName, servicePort) {
+  // Validate required parameters
+  if (!serviceType) {
+    log('red', 'Error: serviceType is required');
+    process.exit(1);
+  }
+  
+  if (!serviceName) {
+    log('red', 'Error: serviceName is required');
+    process.exit(1);
+  }
+
   const devComposeFile = 'docker-compose.yml';
   const prodComposeFile = 'docker-compose.prod.yml';
 
@@ -177,17 +188,17 @@ function generateEnvironmentVars(serviceType, serviceName, servicePort, environm
   switch (serviceType) {
     case 'nestjs-backend':
     case 'microservice':
-      baseVars.push(
-        `PORT=${servicePort}`,
-        `MONGODB_URI=mongodb://\${MONGODB_USERNAME}:\${MONGODB_PASSWORD}@mongodb:27017/${serviceName}_db?authSource=admin`,
-        `REDIS_URL=redis://redis:6379`,
-        `JWT_SECRET=\${JWT_SECRET}`
-      );
+              baseVars.push(
+          `PORT=${servicePort}`,
+          `MONGODB_URI=mongodb://admin:procurement_password@mongodb:27017/${serviceName}_db?authSource=admin`,
+          `REDIS_URL=redis://redis:6379`,
+          `JWT_SECRET=your-jwt-secret-key-change-in-production`
+        );
       break;
     
     case 'react-frontend':
       baseVars.push(
-        `VITE_API_BASE_URL=http://localhost:3000/api`,
+        `VITE_API_BASE_URL=http://localhost:3001/api`,
         `VITE_APP_NAME=${serviceName}`,
         `VITE_NODE_ENV=${environment}`
       );
@@ -196,7 +207,7 @@ function generateEnvironmentVars(serviceType, serviceName, servicePort, environm
     case 'worker':
       baseVars.push(
         `REDIS_URL=redis://redis:6379`,
-        `MONGODB_URI=mongodb://\${MONGODB_USERNAME}:\${MONGODB_PASSWORD}@mongodb:27017/${serviceName}_db?authSource=admin`
+        `MONGODB_URI=mongodb://admin:procurement_password@mongodb:27017/${serviceName}_db?authSource=admin`
       );
       break;
   }

@@ -2,19 +2,19 @@ version: '3.8'
 services:
   mongodb:
     image: mongo:7.0-jammy
-    container_name: procurement-mongodb
+    container_name: template-mongodb
     restart: unless-stopped
     environment:
       MONGO_INITDB_ROOT_USERNAME: admin
-      MONGO_INITDB_ROOT_PASSWORD: procurement_password
-      MONGO_INITDB_DATABASE: procurement_db
+      MONGO_INITDB_ROOT_PASSWORD: template_password
+      MONGO_INITDB_DATABASE: template_db
     ports:
       - '27017:27017'
     volumes:
       - mongodb_data:/data/db
       - ./config/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
     networks:
-      - procurement-network
+      - template-network
     healthcheck:
       test:
         - CMD
@@ -27,14 +27,14 @@ services:
       start_period: 40s
   redis:
     image: redis:7.2-alpine
-    container_name: procurement-redis
+    container_name: template-redis
     restart: unless-stopped
     ports:
       - '6379:6379'
     volumes:
       - redis_data:/data
     networks:
-      - procurement-network
+      - template-network
     healthcheck:
       test:
         - CMD
@@ -49,10 +49,10 @@ services:
     build:
       context: ./apps/backend
       dockerfile: Dockerfile.dev
-    container_name: procurement-backend-dev
+    container_name: template-backend-dev
     restart: unless-stopped
     networks:
-      - procurement-network
+      - template-network
     volumes:
       - ./apps/backend:/app
       - /app/node_modules
@@ -69,7 +69,7 @@ services:
         - CMD
         - curl
         - '-f'
-        - http://localhost:3003/health
+        - http://localhost:3003/api/health
       interval: 30s
       timeout: 5s
       retries: 3
@@ -83,10 +83,10 @@ services:
     build:
       context: ./apps/frontend
       dockerfile: Dockerfile.dev
-    container_name: procurement-frontend-dev
+    container_name: template-frontend-dev
     restart: unless-stopped
     networks:
-      - procurement-network
+      - template-network
     volumes:
       - ./apps/frontend:/app
       - /app/node_modules
@@ -114,10 +114,10 @@ services:
     build:
       context: ./apps/notification-service
       dockerfile: Dockerfile.dev
-    container_name: procurement-notification-service-dev
+    container_name: template-notification-service-dev
     restart: unless-stopped
     networks:
-      - procurement-network
+      - template-network
     volumes:
       - ./apps/notification-service:/app
       - /app/node_modules
@@ -149,10 +149,10 @@ services:
     build:
       context: ./apps/email-worker
       dockerfile: Dockerfile.dev
-    container_name: procurement-email-worker-dev
+    container_name: template-email-worker-dev
     restart: unless-stopped
     networks:
-      - procurement-network
+      - template-network
     volumes:
       - ./apps/email-worker:/app
       - /app/node_modules
@@ -169,5 +169,5 @@ volumes:
   redis_data:
     driver: local
 networks:
-  procurement-network:
+  template-network:
     driver: bridge

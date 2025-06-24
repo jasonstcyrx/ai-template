@@ -1,403 +1,586 @@
-# Autonomous Procurement & Waste Intelligence Platform
+# 🤖 AI-Managed Development Template
 
-A fully containerized, modern full-stack application for autonomous procurement and waste intelligence, built with React, NestJS, MongoDB, and Docker.
+A comprehensive, fully-tested development template with AI-powered project management, automated service generation, and intelligent development workflows.
+
+## ✨ What Makes This Special
+
+This isn't just another template - it's an **AI-managed development ecosystem** that:
+
+- 🤖 **AI-Powered Service Generation** - Automatically creates complete services with Docker integration
+- 🎫 **Intelligent Ticket Management** - Built-in project management with automated workflows  
+- 🧪 **Comprehensive Testing Suite** - 42 tests covering unit, integration, and E2E scenarios
+- 🐳 **Production-Ready Docker Setup** - Multi-stage builds, health checks, and orchestration
+- 📚 **Self-Documenting Architecture** - Auto-generated API docs and living documentation
+- 🔄 **Automated Development Workflows** - From idea to deployment with AI assistance
 
 ## 🏗️ Architecture
 
-### Technology Stack
+### Core Technology Stack
 
-#### Frontend
-- **React 19** with TypeScript
-- **Vite** for fast development and building
-- **Material-UI (MUI)** for component library
-- **Zustand** for state management
-- **SWR** for data fetching
-- **React Router v6** for navigation
+**Frontend Foundation**
+- React 19 + TypeScript + Vite
+- Material-UI (MUI) component library
+- Modern state management patterns
+- Hot reloading and optimized builds
 
-#### Backend
-- **NestJS** with TypeScript
-- **MongoDB** with Mongoose ODM
-- **Redis** for caching
-- **Swagger/OpenAPI** for API documentation
-- **JWT** authentication
-- **Class-validator** for validation
+**Backend Foundation**
+- NestJS + TypeScript + Express
+- MongoDB + Mongoose ODM
+- Redis for caching and sessions
+- Swagger/OpenAPI documentation
 
-#### Infrastructure
-- **Docker** and **Docker Compose** for containerization
-- **Nginx** for production load balancing
-- **Multi-stage builds** for optimization
-- **Health checks** for all services
-- **Non-root containers** for security
+**DevOps & Automation**
+- Docker + Docker Compose orchestration
+- Multi-stage optimized builds
+- Comprehensive health monitoring
+- Automated service discovery
+
+**AI Management Layer**
+- Intelligent service scaffolding
+- Automated Docker integration
+- Smart ticket workflow management
+- Continuous testing automation
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- Docker Desktop installed and running
-- Git for version control
-- (Optional) Node.js 18+ for local development
+- Docker Desktop (required)
+- Git (required)  
+- Node.js 18+ (optional, for local development)
 
-### Development Setup
+### 1-Minute Setup
 
-1. **Clone the Repository**:
-   ```bash
-   git clone <repository-url>
-   cd procurement-platform
-   ```
-
-2. **Start the Development Environment**:
-   ```bash
-   # Using yarn scripts
-   yarn dev
-
-   # Or using Docker helper script
-   ./scripts/docker-dev.sh start
-
-   # Or using Docker Compose directly
-   docker-compose up -d
-   ```
-
-3. **Access the Applications**:
-   - **Frontend**: http://localhost:5173
-   - **Backend API**: http://localhost:3000
-   - **API Documentation**: http://localhost:3000/api/docs
-   - **MongoDB**: mongodb://localhost:27017
-
-4. **View Logs**:
-   ```bash
-   yarn logs
-   # or
-   ./scripts/docker-dev.sh logs
-   ```
-
-### Production Deployment
-
-1. **Configure Environment**:
-   ```bash
-   cp config/environment.example .env.production
-   # Edit .env.production with production values
-   ```
-
-2. **Deploy**:
-   ```bash
-   yarn docker:prod
-   # or
-   docker-compose -f docker-compose.prod.yml up -d
-   ```
-
-## 📊 Services Overview
-
-| Service | Port | Description | Health Check |
-|---------|------|-------------|--------------|
-| Frontend | 5173/80 | React application | http://localhost:5173 |
-| Backend | 3000 | NestJS API server | http://localhost:3000/health |
-| MongoDB | 27017 | Primary database | Internal health check |
-| Redis | 6379 | Cache & sessions | Internal health check |
-| Nginx | 80/443 | Load balancer (prod) | http://localhost/health |
-
-## 🛠️ Development Commands
-
-### Service Initialization
 ```bash
-# Create new services quickly and integrate them into Docker infrastructure
+# Clone and start
+git clone <your-repo-url>
+cd your-project-name
+./scripts/docker-dev.sh start
 
-# Create a new NestJS backend
-yarn init:backend user-service --port 3001 --database --auth
+# Access your running stack
+open http://localhost:3000  # Frontend
+open http://localhost:3003/api/docs  # API Documentation
+```
 
-# Create a new React frontend
-yarn init:frontend admin-dashboard --port 3000
+That's it! You now have a complete development environment running.
 
-# Create a microservice
-yarn init:microservice notification-service --port 3002
+## 🤖 AI-Powered Development Commands
 
-# Create a worker service
-yarn init:worker email-worker
+### Service Generation
+
+The AI can automatically generate complete, production-ready services:
+
+```bash
+# Generate a new NestJS backend service
+npm run service:init nestjs-backend user-service 3001
+
+# Generate a React frontend application  
+npm run service:init react-frontend admin-dashboard 3000
+
+# Generate a microservice
+npm run service:init microservice notification-service 3002
+
+# Generate a background worker
+npm run service:init worker email-worker
 
 # Get help with service creation
-yarn service:help
+npm run service:help
 ```
+
+**What gets generated:**
+- ✅ Complete application structure
+- ✅ Dockerfile (dev + production)
+- ✅ Package.json with proper dependencies
+- ✅ TypeScript configuration
+- ✅ Health check endpoints
+- ✅ Auto-added to Docker Compose
+- ✅ Network configuration
+- ✅ Environment variables
+- ✅ Basic routing and validation
+
+### Intelligent Ticket Management
+
+Built-in project management with workflow automation:
+
+```bash
+# Create a new ticket
+npm run ticket create -t "Add user authentication" --type feature -p high
+
+# List all tickets  
+npm run ticket list
+
+# Move ticket through workflow
+npm run ticket move TICKET-123 in-progress
+npm run ticket move TICKET-123 review
+npm run ticket move TICKET-123 done
+
+# Add comments and assignments
+npm run ticket comment TICKET-123 "Completed API endpoints"
+npm run ticket assign TICKET-123 developer-name
+
+# Show detailed ticket information
+npm run ticket show TICKET-123
+
+# Archive completed work
+npm run ticket archive TICKET-123
+```
+
+**Ticket Workflow States:**
+`backlog` → `todo` → `in-progress` → `review` → `done` → `archive`
 
 ### Docker Management
-```bash
-# Start development environment
-yarn dev
-yarn start
 
-# Stop all services
-yarn stop
-
-# View logs (all or specific service)
-yarn logs
-yarn docker:logs backend
-
-# Check service status
-yarn docker:status
-
-# Rebuild services
-yarn docker:rebuild
-yarn docker:rebuild frontend
-
-# Access container shell
-yarn docker:shell backend
-yarn docker:shell mongodb
-
-# Clean up Docker resources
-yarn docker:cleanup
-
-# Reset database (⚠️ DATA LOSS)
-./scripts/docker-dev.sh reset-db
-```
-
-### Application-Specific
-```bash
-# Frontend development (in apps/frontend)
-cd apps/frontend
-yarn dev
-yarn build
-yarn preview
-
-# Backend development (in apps/backend)
-cd apps/backend
-yarn start:dev
-yarn build
-yarn test
-```
-
-## 🔧 Configuration
-
-### Environment Variables
-
-The application uses environment variables for configuration. Copy the template and customize:
+Comprehensive Docker orchestration:
 
 ```bash
-cp config/environment.example .env
+# Environment control
+./scripts/docker-dev.sh start     # Start development environment
+./scripts/docker-dev.sh stop      # Stop all services  
+./scripts/docker-dev.sh restart   # Restart all services
+./scripts/docker-dev.sh status    # Check service health
+
+# Service management
+./scripts/docker-dev.sh logs              # View all logs
+./scripts/docker-dev.sh logs backend      # View specific service logs
+./scripts/docker-dev.sh shell backend     # Access container shell
+./scripts/docker-dev.sh rebuild frontend  # Rebuild specific service
+
+# Database management
+./scripts/docker-dev.sh reset-db     # Reset database (⚠️ DATA LOSS)
+./scripts/docker-dev.sh backup-db    # Backup database
+./scripts/docker-dev.sh restore-db   # Restore database
+
+# Cleanup and maintenance
+./scripts/docker-dev.sh cleanup      # Clean unused Docker resources
+./scripts/docker-dev.sh update       # Update all images
 ```
 
-Key variables:
-- `MONGODB_USERNAME/PASSWORD`: Database credentials
-- `JWT_SECRET`: Authentication secret
-- `FRONTEND_URL`: Frontend application URL
-- `API_KEY`: External service API key
+### Testing & Quality Assurance
 
-### Database Initialization
+Comprehensive testing suite with 42 automated tests:
 
-MongoDB is automatically initialized with:
-- Database schemas and validation
-- Optimized indexes
-- Sample data for development
-- Proper user permissions
+```bash
+# Run all tests (unit + integration + E2E)
+npm test
+
+# Run specific test suites
+npm run test:unit           # Unit tests only
+npm run test:integration    # Integration tests only  
+npm run test:e2e           # End-to-end tests only
+
+# Run tests with coverage
+npm run test:coverage
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run specific test file
+npm test -- ticket-cli.test.js
+```
+
+**Test Coverage:**
+- ✅ 42 comprehensive tests
+- ✅ Unit tests for all core functionality
+- ✅ Integration tests for service interactions
+- ✅ E2E tests for complete workflows
+- ✅ 70% minimum coverage requirement
+- ✅ VS Code integration for debugging
+
+## 📊 Services & Architecture
+
+### Default Services
+
+| Service | Port | Purpose | Health Check |
+|---------|------|---------|--------------|
+| Frontend | 3000 | React application | http://localhost:3000/health |
+| Backend | 3003 | NestJS API server | http://localhost:3003/api/health |
+| Notification Service | 3001 | Microservice example | http://localhost:3001/health |
+| Email Worker | - | Background worker | Process monitoring |
+| MongoDB | 27017 | Primary database | Internal ping |
+| Redis | 6379 | Cache & sessions | Internal ping |
+
+### Generated Service Types
+
+**NestJS Backend**
+- Full TypeScript setup
+- MongoDB integration
+- Redis caching
+- Swagger documentation
+- Health check endpoints
+- Authentication ready
+- Validation pipes
+- Error handling
+
+**React Frontend**  
+- Vite build system
+- TypeScript configuration
+- Material-UI integration
+- Routing setup
+- State management
+- API client setup
+- Responsive design
+
+**Microservice**
+- Express-based service
+- Health monitoring
+- API documentation
+- Database connectivity
+- Redis integration
+- Error handling
+
+**Worker Service**
+- Background processing
+- Queue management
+- Error handling
+- Monitoring setup
+- Scalable architecture
 
 ## 🏢 Project Structure
 
 ```
-procurement-platform/
-├── apps/
-│   ├── frontend/           # React frontend application
-│   │   ├── src/
-│   │   ├── Dockerfile      # Production build
-│   │   ├── Dockerfile.dev  # Development build
-│   │   └── nginx.conf      # Nginx configuration
-│   └── backend/            # NestJS backend application
-│       ├── src/
-│       ├── Dockerfile      # Production build
-│       └── Dockerfile.dev  # Development build
-├── config/
-│   ├── mongo-init.js       # MongoDB initialization
-│   ├── nginx.conf          # Production Nginx config
-│   └── environment.example # Environment template
-├── scripts/
-│   ├── docker-dev.sh       # Docker helper script
-│   └── ticket-cli.js       # Project management
-├── docker-compose.yml      # Development configuration
-├── docker-compose.prod.yml # Production configuration
-├── DOCKER.md              # Comprehensive Docker guide
-└── README.md              # This file
+your-project/
+├── apps/                          # Generated services
+│   ├── backend/                   # NestJS API server
+│   ├── frontend/                  # React application
+│   ├── notification-service/      # Example microservice
+│   └── email-worker/             # Example worker
+├── config/                        # Configuration files
+│   ├── environment.example       # Environment template
+│   ├── mongo-init.js             # Database initialization
+│   └── nginx.conf                # Production proxy config
+├── scripts/                       # AI management scripts
+│   ├── docker-dev.sh             # Docker orchestration
+│   ├── init-service.sh           # Service generation
+│   ├── ticket-cli.js             # Ticket management
+│   └── add-to-docker-compose.js  # Docker integration
+├── tests/                         # Comprehensive test suite
+│   ├── unit/                     # Unit tests
+│   ├── integration/              # Integration tests
+│   ├── e2e/                      # End-to-end tests
+│   └── setup.js                 # Test configuration
+├── tickets/                       # Project management
+│   ├── todo/                     # Ready for work
+│   ├── in-progress/              # Current work
+│   ├── review/                   # Code review
+│   ├── done/                     # Completed
+│   └── archive/                  # Historical
+├── docker-compose.yml             # Development environment
+├── docker-compose.prod.yml       # Production environment
+└── package.json                  # Project configuration
 ```
 
-## 🔍 Features
+## 🛠️ Advanced Features
 
-### Frontend Features
-- ✅ Modern React 19 with hooks
-- ✅ TypeScript for type safety
-- ✅ Material-UI component library
-- ✅ Responsive design
-- ✅ State management with Zustand
-- ✅ Data fetching with SWR
-- ✅ Client-side routing
-- ✅ Hot module reloading
+### Environment Management
 
-### Backend Features
-- ✅ NestJS framework with TypeScript
-- ✅ MongoDB with Mongoose ODM
-- ✅ Redis caching
-- ✅ Swagger API documentation
-- ✅ Input validation and transformation
-- ✅ Health check endpoints
-- ✅ CORS configuration
-- ✅ Error handling
-
-### DevOps Features
-- ✅ Complete Docker containerization
-- ✅ Multi-stage optimized builds
-- ✅ Development hot reloading
-- ✅ Production load balancing
-- ✅ Health monitoring
-- ✅ Non-root container security
-- ✅ Persistent data volumes
-- ✅ Network isolation
-- ✅ **Service Initialization System** - Quickly scaffold new services
-- ✅ **Automatic Docker Integration** - New services auto-added to compose files
-
-## 🚦 Monitoring & Health
-
-### Health Checks
-
-All services include health checks:
-- **Frontend**: HTTP GET to main page
-- **Backend**: Custom health endpoint
-- **MongoDB**: Database ping
-- **Redis**: Redis ping
-
-### Logging
-
-View logs for debugging:
 ```bash
-# All services
-docker-compose logs -f
+# Development (default)
+./scripts/docker-dev.sh start
 
-# Specific service
-docker-compose logs -f backend
+# Production deployment  
+docker-compose -f docker-compose.prod.yml up -d
 
-# With timestamps
-docker-compose logs -t
+# Custom environment
+cp config/environment.example .env.custom
+docker-compose --env-file .env.custom up -d
 ```
 
-### Performance Monitoring
+### Database Management
 
 ```bash
-# Container resource usage
+# MongoDB operations
+docker-compose exec mongodb mongosh
+docker-compose exec mongodb mongosh --eval "db.stats()"
+
+# Redis operations
+docker-compose exec redis redis-cli
+docker-compose exec redis redis-cli ping
+
+# Backup operations
+./scripts/docker-dev.sh backup-db
+./scripts/docker-dev.sh restore-db backup-filename.gz
+```
+
+### Monitoring & Debugging
+
+```bash
+# Real-time container stats
 docker stats
 
-# Service status
-docker-compose ps
+# Service health checks
+curl http://localhost:3003/api/health
+curl http://localhost:3001/health
+curl http://localhost:3000/health
 
-# Detailed health information
-./scripts/docker-dev.sh status
+# Log aggregation
+./scripts/docker-dev.sh logs --tail 100 --follow
+
+# Debug specific service
+./scripts/docker-dev.sh shell backend
+./scripts/docker-dev.sh logs backend --tail 50
 ```
 
-## 🔐 Security
+## 🧪 Testing Framework
+
+### Test Categories
+
+**Unit Tests (70%)**
+- Component functionality
+- Service logic
+- Utility functions  
+- Data transformations
+- Business rules
+
+**Integration Tests (20%)**
+- API endpoints
+- Database operations
+- Service interactions
+- Docker configurations
+- Authentication flows
+
+**End-to-End Tests (10%)**
+- Complete user workflows
+- Multi-service scenarios
+- Error recovery
+- Concurrent operations
+- System reliability
+
+### Test Execution
+
+```bash
+# Full test suite with coverage
+npm test
+
+# Continuous testing during development
+npm run test:watch
+
+# Debug tests in VS Code
+npm run test:debug
+
+# Generate test reports
+npm run test:report
+
+# Performance testing
+npm run test:performance
+```
+
+## 🔐 Security & Best Practices
 
 ### Container Security
-- Non-root users in all containers
-- Multi-stage builds for minimal attack surface
-- Resource limits configured
-- Network isolation between services
+- 🔒 Non-root user execution
+- 🔒 Multi-stage optimized builds  
+- 🔒 Resource limits enforced
+- 🔒 Network isolation
+- 🔒 Health check monitoring
+- 🔒 Minimal attack surface
 
 ### Application Security
-- Input validation on all endpoints
-- CORS properly configured
-- JWT authentication
-- Environment variable secrets
-- SQL injection prevention
+- 🛡️ Input validation on all endpoints
+- 🛡️ CORS properly configured
+- 🛡️ Environment variable secrets
+- 🛡️ SQL injection prevention
+- 🛡️ XSS protection
+- 🛡️ Rate limiting
 
-### Network Security
-- Internal Docker networks
-- Exposed ports minimized
-- Nginx security headers
-- Rate limiting configured
+### Development Security
+- 🔐 No secrets in source code
+- 🔐 Environment variable templates
+- 🔐 Secure default configurations
+- 🔐 Regular dependency updates
+- 🔐 Security testing automation
 
-## 📈 Performance
+## 📈 Performance Optimizations
 
-### Development Optimizations
-- Hot reloading for fast development
-- Volume mounts for instant file changes
-- Optimized Docker layer caching
-- Parallel service startup
+### Development Performance
+- ⚡ Hot module reloading
+- ⚡ Optimized Docker layer caching
+- ⚡ Parallel service startup
+- ⚡ Volume mount efficiency
+- ⚡ Fast test execution
 
-### Production Optimizations
-- Multi-stage builds for smaller images
-- Nginx load balancing
-- Redis caching layer
-- Database query optimization
-- Static asset caching
+### Production Performance  
+- 🚀 Multi-stage builds for minimal images
+- 🚀 Nginx load balancing and caching
+- 🚀 Redis caching layer
+- 🚀 Database query optimization
+- 🚀 Asset compression and CDN
+- 🚀 Service mesh ready
 
-## 🛡️ Troubleshooting
+## 🔧 Customization
 
-### Common Issues
+### Adding Your Own Services
 
-1. **Port conflicts**:
+1. **Generate the service:**
    ```bash
-   # Check what's using the port
-   lsof -i :3000
+   npm run service:init nestjs-backend your-service 3004
    ```
 
-2. **Database connection issues**:
-   ```bash
-   # Check MongoDB health
-   docker-compose exec mongodb mongosh --eval "db.adminCommand('ping')"
-   ```
+2. **Customize the generated code:**
+   - Edit `apps/your-service/src/` files
+   - Modify `apps/your-service/package.json` dependencies
+   - Update `apps/your-service/Dockerfile.dev` if needed
 
-3. **Build failures**:
-   ```bash
-   # Clean rebuild
-   docker-compose down
-   docker-compose build --no-cache
-   docker-compose up -d
-   ```
+3. **The service is automatically:**
+   - Added to Docker Compose
+   - Configured with networking
+   - Set up with health checks
+   - Ready for development
 
-4. **Permission issues**:
-   ```bash
-   # Reset file permissions
-   sudo chown -R $USER:$USER .
-   ```
+### Modifying the Template
 
-### Getting Help
+```bash
+# Update service generation templates
+edit scripts/init-service.sh
 
-- Check the [Docker documentation](./DOCKER.md) for detailed Docker instructions
-- View service logs: `yarn logs`
-- Check service health: `yarn docker:status`
-- Reset environment: `./scripts/docker-dev.sh reset-db` (⚠️ Data loss)
+# Modify Docker configurations  
+edit scripts/add-to-docker-compose.js
 
-## 🎯 Next Steps
+# Customize test setup
+edit tests/setup.js
 
-### Development Roadmap
-- [ ] Authentication and authorization
-- [ ] User management system
-- [ ] Procurement order management
-- [ ] Waste analytics dashboard
-- [ ] AI decision engine integration
-- [ ] Vendor integration APIs
-- [ ] Real-time notifications
-- [ ] Mobile application
-
-### Infrastructure Enhancements
-- [ ] Kubernetes deployment
-- [ ] CI/CD pipeline setup
-- [ ] Monitoring and alerting
-- [ ] SSL/TLS configuration
-- [ ] Database clustering
-- [ ] CDN integration
-- [ ] Backup automation
-
-## 📄 Documentation
-
-- [Service Initialization Guide](./SERVICE_INIT.md) - Complete guide to creating new services
-- [Docker Setup Guide](./DOCKER.md) - Comprehensive Docker documentation
-- [Frontend README](./apps/frontend/README.md) - Frontend-specific documentation
-- [Backend API Docs](http://localhost:3000/api/docs) - Interactive API documentation (when running)
+# Update project management
+edit scripts/ticket-cli.js
+```
 
 ## 🤝 Contributing
 
-1. Follow the Git workflow rules
-2. Use the ticket system for project management
-3. Ensure all Docker health checks pass
-4. Add tests for new features
-5. Update documentation as needed
+### Development Workflow
 
-## 📝 License
+1. **Create a ticket:**
+   ```bash
+   npm run ticket create -t "Your feature" --type feature -p medium
+   ```
 
-This project is licensed under the MIT License.
+2. **Start development:**
+   ```bash
+   npm run ticket move TICKET-123 in-progress
+   ./scripts/docker-dev.sh start
+   ```
+
+3. **Run tests:**
+   ```bash
+   npm test
+   npm run test:watch  # During development
+   ```
+
+4. **Complete work:**
+   ```bash
+   npm run ticket move TICKET-123 review
+   npm run ticket move TICKET-123 done
+   ```
+
+### Code Quality
+
+- ✅ All tests must pass (`npm test`)
+- ✅ 70% minimum test coverage
+- ✅ TypeScript strict mode
+- ✅ ESLint + Prettier formatting
+- ✅ Docker health checks pass
+- ✅ Documentation updated
+
+## 🚀 Deployment
+
+### Production Deployment
+
+```bash
+# Build production images
+docker-compose -f docker-compose.prod.yml build
+
+# Deploy to production
+docker-compose -f docker-compose.prod.yml up -d
+
+# Monitor deployment
+docker-compose -f docker-compose.prod.yml ps
+docker-compose -f docker-compose.prod.yml logs -f
+```
+
+### Cloud Deployment
+
+The template is ready for:
+- 🌩️ AWS ECS/EKS
+- 🌩️ Google Cloud Run/GKE  
+- 🌩️ Azure Container Instances/AKS
+- 🌩️ DigitalOcean App Platform
+- 🌩️ Any Docker-compatible platform
+
+## 📚 Documentation
+
+- [Service Initialization Guide](./SERVICE_INIT.md) - Complete service generation guide
+- [Docker Management Guide](./DOCKER.md) - Comprehensive Docker documentation  
+- [Testing Strategy](./docs/TESTING.md) - Testing philosophy and practices
+- [API Documentation](http://localhost:3003/api/docs) - Interactive API docs (when running)
+
+## 🆘 Troubleshooting
+
+### Common Issues
+
+**Port Conflicts:**
+```bash
+# Check what's using a port
+lsof -i :3000
+
+# Stop conflicting services
+./scripts/docker-dev.sh stop
+```
+
+**Docker Issues:**
+```bash
+# Reset Docker environment
+./scripts/docker-dev.sh cleanup
+docker system prune -f
+
+# Rebuild everything
+./scripts/docker-dev.sh rebuild
+```
+
+**Database Problems:**
+```bash
+# Reset database (⚠️ DATA LOSS)
+./scripts/docker-dev.sh reset-db
+
+# Check database health
+docker-compose exec mongodb mongosh --eval "db.adminCommand('ping')"
+```
+
+**Test Failures:**
+```bash
+# Run tests with verbose output
+npm test -- --verbose
+
+# Run specific failing test
+npm test -- --testNamePattern="your test name"
+```
+
+### Getting Help
+
+1. Check service logs: `./scripts/docker-dev.sh logs`
+2. Verify service health: `./scripts/docker-dev.sh status`  
+3. Review documentation in `docs/` folder
+4. Check test output: `npm test`
+5. Reset environment: `./scripts/docker-dev.sh cleanup`
+
+## 🎯 What's Next?
+
+This template gives you:
+- ✅ **Complete development environment** ready in 1 minute
+- ✅ **AI-powered service generation** for rapid development
+- ✅ **Production-ready architecture** with security and performance
+- ✅ **Comprehensive testing suite** ensuring code quality
+- ✅ **Intelligent project management** with ticket workflows
+- ✅ **Full Docker orchestration** from development to production
+
+**Ready to build something amazing?**
+
+```bash
+./scripts/docker-dev.sh start
+npm run ticket create -t "Your first feature" --type feature -p high
+npm run service:init nestjs-backend my-service 3005
+```
+
+## 📄 License
+
+MIT License - feel free to use this template for any project!
 
 ---
 
-**Ready to start developing?** Run `yarn dev` and visit http://localhost:5173! 🎉
+🤖 **Powered by AI** | 🧪 **42 Tests Included** | 🐳 **Docker Ready** | 🚀 **Production Optimized**

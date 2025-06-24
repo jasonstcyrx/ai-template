@@ -348,6 +348,10 @@ EOF
     # Create Dockerfiles
     create_nestjs_dockerfiles "$service_name" "$port"
     
+    # Install dependencies
+    print_status "Installing dependencies..."
+    cd "$service_dir" && yarn install --silent && cd ../..
+    
     print_success "NestJS backend service '$service_name' created successfully!"
 }
 
@@ -539,6 +543,10 @@ EOF
     # Create Dockerfiles
     create_microservice_dockerfiles "$service_name" "$port"
     
+    # Install dependencies
+    print_status "Installing dependencies..."
+    cd "$service_dir" && yarn install --silent && cd ../..
+    
     print_success "Microservice '$service_name' created successfully!"
 }
 
@@ -641,6 +649,10 @@ EOF
 
     # Create Dockerfiles
     create_worker_dockerfiles "$service_name"
+    
+    # Install dependencies
+    print_status "Installing dependencies..."
+    cd "$service_dir" && yarn install --silent && cd ../..
     
     print_success "Worker service '$service_name' created successfully!"
 }

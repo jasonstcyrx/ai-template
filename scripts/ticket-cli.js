@@ -6,7 +6,7 @@ const yaml = require("js-yaml");
 const { program } = require("commander");
 const { v4: uuidv4 } = require("uuid");
 
-const TICKET_ROOT = path.join(process.cwd(), "tickets");
+const TICKET_ROOT = process.env.TICKET_ROOT || path.join(process.cwd(), "tickets");
 const VALID_STATUSES = [
   "backlog",
   "todo",
@@ -89,6 +89,12 @@ program
       comments: [],
     };
 
+    // Ensure backlog directory exists
+    const backlogDir = path.join(TICKET_ROOT, "backlog");
+    if (!fs.existsSync(backlogDir)) {
+      fs.mkdirSync(backlogDir, { recursive: true });
+    }
+
     const ticketPath = path.join(TICKET_ROOT, "backlog", `${ticketId}.md`);
     fs.writeFileSync(
       ticketPath,
@@ -118,6 +124,12 @@ program
     const { metadata, body } = parseTicketFile(currentPath);
     metadata.status = newStatus;
     metadata.updated_at = new Date().toISOString();
+
+    // Ensure destination directory exists
+    const destinationDir = path.join(TICKET_ROOT, newStatus);
+    if (!fs.existsSync(destinationDir)) {
+      fs.mkdirSync(destinationDir, { recursive: true });
+    }
 
     const newPath = path.join(TICKET_ROOT, newStatus, `${ticketId}.md`);
     fs.writeFileSync(newPath, createTicketContent(metadata, body));
@@ -251,6 +263,12 @@ program
     const { metadata, body } = parseTicketFile(ticketPath);
     metadata.status = "archive";
     metadata.updated_at = new Date().toISOString();
+
+    // Ensure archive directory exists
+    const archiveDir = path.join(TICKET_ROOT, "archive");
+    if (!fs.existsSync(archiveDir)) {
+      fs.mkdirSync(archiveDir, { recursive: true });
+    }
 
     const archivePath = path.join(TICKET_ROOT, "archive", `${ticketId}.md`);
     fs.writeFileSync(archivePath, createTicketContent(metadata, body));
